@@ -8,7 +8,6 @@
 #include "physicsFormulas.h"
 #include "uiInteract.h"
 #include "uiDraw.h"
-//#define GRAV_CONST 9.8
 
 /**************************************************
  * CLASS Moving Object

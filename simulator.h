@@ -1,6 +1,6 @@
 /**********************************************************************
  * simulator.h
- * orbitSimulator 
+ * orbitSimulator
  *
  * Summary:
  *    The class that contains the update, handleInput and display methods
@@ -25,11 +25,12 @@
  *    This class will handle all the logic for all
  *    the objects and movement in our simulator
  **************************************************/
-class Simulator {
-    
+class Simulator
+{
+
 public:
-   Simulator(Position ptUpperRight) : tr(ptUpperRight) {
-      // Earth -- nothing needed
+   Simulator(Position ptUpperRight) : tr(ptUpperRight)
+   {  // Earth -- nothing needed
 
       // Ship -- nothing needed
 
@@ -42,59 +43,60 @@ public:
       /// Sputnik
       Sputnik* sputnik = new Sputnik; // allocate new memory
       satellites.push_back(sputnik);
-      
+
       /// GPS (x5)
       createGPSObjects();
-      
+
       /// Hubble
       Hubble* hubble = new Hubble; // allocate new memory
       satellites.push_back(hubble);
-      
+
       /// SpaceX Crew Dragon
       CrewDragon* crewDragon = new CrewDragon; // "
       satellites.push_back(crewDragon);
-      
+
       /// SpaceX Starlink
       Starlink* starlink = new Starlink;
       satellites.push_back(starlink);
-      
+
       /// Broken Satellite Pieces (part of satellites[]) -- none at construction
       /// Fragments (part of satellites[]) -- none at construction
-//      Fragment * frag = new Fragment(Position(10000, 10000), Velocity(0,0), 0.0);
-//      satellites.push_back(frag);
-      
+      // Fragment * frag = new Fragment(Position(10000, 10000), Velocity(0,0), 0.0);
+      // satellites.push_back(frag);
+
       // projectiles[] -- none at construction
    }
-   
-   ~Simulator() {
+
+   ~Simulator()
+   {
       deleteAllSatellites();
    }
-    
-   void update(const Interface * pUI) {
-      // duck duck goose
+
+   void update(const Interface * pUI)
+   {  // duck duck goose
       if (earth.isAlive()) earth.update(pUI);
       if (ship.isAlive()) ship.update(pUI);
-      
+
       for (auto it = stars.begin(); it != stars.end(); ++it)
          it->update();
-      
+
       for (auto it = satellites.begin(); it != satellites.end(); ++it)
          if ((*it)->isAlive())
             (*it)->update(pUI);
-      
+
       for (auto it = projectiles.begin(); it != projectiles.end(); ++it)
          if (it->isAlive())
             it->update(pUI);
-      
+
       // self
       handleCollisions();
       applyGravity(pUI);
       cleanUpZombies();
    }
-    
-   void display() const {
-      // self
-      
+
+   void display() const
+   {  // self
+
       // hello operator, I'd like to call...
       if (earth.isAlive()) earth.display();
       if (ship.isAlive()) ship.display();
@@ -102,16 +104,18 @@ public:
       for (auto it : satellites)  if (it->isAlive()) it->display();
       for (auto it : projectiles) if (it.isAlive())  it.display();
    }
- 
-   void handleInput(const Interface * pUI) {
-      // self
-      if (pUI->isSpace()) {
-         if (ship.timeToFireProjectile()) {
+
+   void handleInput(const Interface * pUI)
+   {  // self
+      if (pUI->isSpace())
+      {
+         if (ship.timeToFireProjectile())
+         {
             auto newProjectile = ship.fire();
             projectiles.push_back(newProjectile);
          }
       }
-      
+
       // statics
       if (pUI->isB()) MovingObject::toggleShowHitboxes();
 
@@ -128,42 +132,43 @@ private:
    // Screen Dimensions
    Position tr; // upper-right point of window
    // (center is [0,0], giving us dimensions w/2 and h/2)
-   
+
    // objects on the screen
    Earth earth;
    SpaceShip ship;
    std::vector<Satellite*> satellites; // pointers* for polymorphism
    std::vector<Projectile> projectiles;
    std::vector<Star> stars;
-   
+
    /**************************************************
     * helper methods
     **************************************************/
 
    // handle collisions
    void handleCollisions();
-   
+
    // handle collision overrides
    void handleCollision(SpaceShip, Earth);
    void handleCollision(Earth, Projectile & projectile);
    void handleCollision(Earth, Satellite * satellite);
    void handleCollision(SpaceShip, Satellite* satellite);
    void handleCollision(Projectile & projectile, Satellite * satellite);
-   
+
    void applyGravity(const Interface * pUI);
-   
+
    // remove all objects where obj.isAlive() == false
    void cleanUpZombies();
    void cleanUpSatellites();
    void cleanUpProjectiles();
-   
+
    // miscellaneous
    void deleteAllSatellites();
    Satellite* createGPSObject(Position p, Velocity v);
    void createGPSObjects();
    Position randomPositionOnScreen() const;
-   
-   std::string getSatelliteName(const Satellite * s) {
+
+   std::string getSatelliteName(const Satellite * s)
+   {
       if (typeid(*s) == typeid(SatellitePart))  return "SatellitePart"; // change to SatellitePart AND children classes
       if (typeid(*s) == typeid(Sputnik))        return "Sputnik";
       if (typeid(*s) == typeid(GPS))            return "GPS";

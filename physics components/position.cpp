@@ -106,7 +106,7 @@ std::ostream& operator << (std::ostream& out, const Position& rhs) {
    out << "(" << rhs.getMetersX() << "m , " << rhs.getMetersY() << "m)";
    return out;
 }
-   
+
 /**************************************************
  * POSITION extraction
  *       Prompt for coordinates

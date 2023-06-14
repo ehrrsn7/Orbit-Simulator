@@ -3,14 +3,13 @@
  * orbitSimulator
  **********************************************************************/
 
-
 #include "testVector.h"
 
 /********************
  * Constructors
  ********************/
-void TestVector::UpperEdgeCase::test_default_constructor() const {
-   // setup
+void TestVector::UpperEdgeCase::test_default_constructor() const
+{  // setup
    Vector v;
    // exercise
    // verify
@@ -18,8 +17,8 @@ void TestVector::UpperEdgeCase::test_default_constructor() const {
    assert(v.y == 0);
 }  // breakdown
 
-void TestVector::UpperEdgeCase::test_nondefault_Constructor () const {
-   // setup
+void TestVector::UpperEdgeCase::test_nondefault_Constructor () const
+{  // setup
    Vector v(numeric_limits<double>::max(), numeric_limits<double>::max());
    // exercise
    // verify
@@ -27,8 +26,8 @@ void TestVector::UpperEdgeCase::test_nondefault_Constructor () const {
    assert(v.y == numeric_limits<double>::max());
 }  // breakdown
 
-void TestVector::UpperEdgeCase::test_assignment() const {
-   // setup
+void TestVector::UpperEdgeCase::test_assignment() const
+{  // setup
    Vector v1(numeric_limits<double>::max(), numeric_limits<double>::max());
    Vector vCopy = v1;
    // exercise
@@ -37,8 +36,8 @@ void TestVector::UpperEdgeCase::test_assignment() const {
    assert(vCopy.y == numeric_limits<double>::max());
 }  // breakdown
 
-void TestVector::UpperEdgeCase::test_copy_constructor() const {
-   // setup
+void TestVector::UpperEdgeCase::test_copy_constructor() const
+{  // setup
    Vector v1(numeric_limits<double>::max(), numeric_limits<double>::max());
    Vector vCopy(v1);
    // exercise
@@ -52,8 +51,8 @@ void TestVector::UpperEdgeCase::test_copy_constructor() const {
  * Getters
  ********************/
 // test getX
-void TestVector::UpperEdgeCase::testGetX() const {
-   // setup
+void TestVector::UpperEdgeCase::testGetX() const
+{  // setup
    Vector v(numeric_limits<double>::max(), numeric_limits<double>::max());
    // exercise
    // verify
@@ -61,8 +60,8 @@ void TestVector::UpperEdgeCase::testGetX() const {
 }  // breakdown
 
 // test getY
-void TestVector::UpperEdgeCase::testGetY() const {
-   // setup
+void TestVector::UpperEdgeCase::testGetY() const
+{  // setup
    Vector v(numeric_limits<double>::max(), numeric_limits<double>::max());
    // exercise
    // verify
@@ -74,8 +73,8 @@ void TestVector::UpperEdgeCase::testGetY() const {
  * Setters
  ********************/
 // test setX
-void TestVector::UpperEdgeCase::testSetX() const {
-   // setup
+void TestVector::UpperEdgeCase::testSetX() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setX(numeric_limits<double>::max());
@@ -85,8 +84,8 @@ void TestVector::UpperEdgeCase::testSetX() const {
 }  // breakdown
 
 // test setY
-void TestVector::UpperEdgeCase::testSetY() const {
-   // setup
+void TestVector::UpperEdgeCase::testSetY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setY(numeric_limits<double>::max());
@@ -96,8 +95,8 @@ void TestVector::UpperEdgeCase::testSetY() const {
 }  // breakdown
 
 // test set(x, y)
-void TestVector::UpperEdgeCase::testSetXY() const {
-   // setup
+void TestVector::UpperEdgeCase::testSetXY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.set(numeric_limits<double>::max(), numeric_limits<double>::max());
@@ -107,8 +106,8 @@ void TestVector::UpperEdgeCase::testSetXY() const {
 }  // breakdown
 
 // test set(s)
-void TestVector::UpperEdgeCase::testSetS() const {
-   // setup
+void TestVector::UpperEdgeCase::testSetS() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.set(Vector(numeric_limits<double>::max(), numeric_limits<double>::max()));
@@ -122,8 +121,8 @@ void TestVector::UpperEdgeCase::testSetS() const {
  * Adders
  ********************/
 // test addX
-void TestVector::UpperEdgeCase::testAddX() const {
-   // setup
+void TestVector::UpperEdgeCase::testAddX() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addX(numeric_limits<double>::max());
@@ -133,8 +132,8 @@ void TestVector::UpperEdgeCase::testAddX() const {
 }  // breakdown
 
 // test addY
-void TestVector::UpperEdgeCase::testAddY() const {
-   // setup
+void TestVector::UpperEdgeCase::testAddY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addY(numeric_limits<double>::max());
@@ -144,8 +143,8 @@ void TestVector::UpperEdgeCase::testAddY() const {
 }  // breakdown
 
 // test add(x, y)
-void TestVector::UpperEdgeCase::testAddXY() const {
-   // setup
+void TestVector::UpperEdgeCase::testAddXY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.add(numeric_limits<double>::max(), numeric_limits<double>::max());
@@ -155,8 +154,8 @@ void TestVector::UpperEdgeCase::testAddXY() const {
 }  // breakdown
 
 // test add(s)
-void TestVector::UpperEdgeCase::testAddS() const {
-   // setup
+void TestVector::UpperEdgeCase::testAddS() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.add(Vector(numeric_limits<double>::max(), numeric_limits<double>::max()));
@@ -169,8 +168,8 @@ void TestVector::UpperEdgeCase::testAddS() const {
  * Other Getters/Setters
  ********************/
 // test getMagnitude
-void TestVector::UpperEdgeCase::testGetMagnitude() const {
-   // setup
+void TestVector::UpperEdgeCase::testGetMagnitude() const
+{  // setup
    Vector v(numeric_limits<double>::max(), numeric_limits<double>::max());
    // exercise
    // verify
@@ -178,8 +177,8 @@ void TestVector::UpperEdgeCase::testGetMagnitude() const {
 }  // breakdown
 
 // test getAngleRadians
-void TestVector::UpperEdgeCase::testGetAngleRadians() const {
-   // setup
+void TestVector::UpperEdgeCase::testGetAngleRadians() const
+{  // setup
    Vector v(numeric_limits<double>::max(), numeric_limits<double>::max());
    // exercise
    // verify
@@ -187,8 +186,8 @@ void TestVector::UpperEdgeCase::testGetAngleRadians() const {
 }  // breakdown
 
 // test angle
-void TestVector::UpperEdgeCase::testAngle() const {
-   // setup
+void TestVector::UpperEdgeCase::testAngle() const
+{  // setup
    Vector v(numeric_limits<double>::max(), numeric_limits<double>::max());
    // exercise
    // verify
@@ -196,8 +195,8 @@ void TestVector::UpperEdgeCase::testAngle() const {
 }  // breakdown
 
 // test setPolar
-void TestVector::UpperEdgeCase::testSetPolar() const {
-   // setup
+void TestVector::UpperEdgeCase::testSetPolar() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setPolar(numeric_limits<double>::max(), numeric_limits<double>::max());
@@ -207,8 +206,8 @@ void TestVector::UpperEdgeCase::testSetPolar() const {
 }  // breakdown
 
 // test setMagnitude
-void TestVector::UpperEdgeCase::testSetMagnitude() const {
-   // setup
+void TestVector::UpperEdgeCase::testSetMagnitude() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setMagnitude(numeric_limits<double>::max(), numeric_limits<double>::max());
@@ -218,8 +217,8 @@ void TestVector::UpperEdgeCase::testSetMagnitude() const {
 }  // breakdown
 
 // test addPolar
-void TestVector::UpperEdgeCase::testAddPolar() const {
-   // setup
+void TestVector::UpperEdgeCase::testAddPolar() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addPolar(numeric_limits<double>::max(), numeric_limits<double>::max());
@@ -229,8 +228,8 @@ void TestVector::UpperEdgeCase::testAddPolar() const {
 }  // breakdown
 
 // test addMagnitude
-void TestVector::UpperEdgeCase::testAddMagnitude() const {
-   // setup
+void TestVector::UpperEdgeCase::testAddMagnitude() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addMagnitude(numeric_limits<double>::max(), numeric_limits<double>::max());

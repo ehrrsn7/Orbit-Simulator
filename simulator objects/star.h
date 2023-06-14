@@ -17,22 +17,22 @@ class Star {
 public:
    Star(): phase(random(0, 255)) { }
    Star(Position p) : p(p), phase(random(0, 255)) { }
-   
+
    void update() {
       phase += 1;
       twinkle();
    }
-   
+
    void display() const {
       drawStar(p, phase);
    }
-   
+
    void handleInput(const Interface * pUI) { }
 
 private:
    Position p;
    unsigned char phase;
-   
+
    /**************************************************
     * helper methods
     **************************************************/

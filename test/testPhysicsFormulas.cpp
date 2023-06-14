@@ -3,7 +3,6 @@
  * orbitSimulator
  **********************************************************************/
 
-
 #include "testPhysicsFormulas.h"
 
 #include "physicsFormulas.h"  // functions to test
@@ -14,14 +13,14 @@
 #include "satellite.h"        // for test involving gravity, we'll use sputnik for an example
 
 // assert helpers
-double nearest(double num, int precision) {
-   // rounds `num` to the nearest `precision`
+double nearest(double num, int precision)
+{  // rounds `num` to the nearest `precision`
    return round(num * pow(10, precision)) / pow(10, precision);
 }
 
 // test functions
-void test_trigX() {
-   // setup
+void test_trigX()
+{  // setup
    double magnitude = 2 * sqrt(2);
    double angleRadians = M_PI/4;
    // exercise
@@ -31,8 +30,8 @@ void test_trigX() {
    assert(typeid(x) == typeid(double));
 }  // breakdown
 
-void test_trigY() {
-   // setup
+void test_trigY()
+{  // setup
    double magnitude = 2 * sqrt(2);
    double angleRadians = M_PI/4;
    // exercise
@@ -42,8 +41,8 @@ void test_trigY() {
    assert(typeid(y) == typeid(double));
 }  // breakdown
 
-void test_trigX_vector() {
-   // setup
+void test_trigX_vector()
+{  // setup
    Vector v;
    v.setPolar(2 * sqrt(2), M_PI/4);
    // exercise
@@ -53,8 +52,8 @@ void test_trigX_vector() {
    assert(typeid(x) == typeid(double));
 }  // breakdown
 
-void test_trigY_vector() {
-   // setup
+void test_trigY_vector()
+{  // setup
    Vector v;
    v.setPolar(2 * sqrt(2), M_PI/4);
    // exercise
@@ -64,8 +63,8 @@ void test_trigY_vector() {
    assert(typeid(y) == typeid(double));
 }  // breakdown
 
-void test_mag() {
-   // setup
+void test_mag()
+{  // setup
    double x = 2;
    double y = 2;
    // exercise
@@ -75,8 +74,8 @@ void test_mag() {
    assert(typeid(r) == typeid(double));
 }  // breakdown
 
-void test_mag_vector() {
-   // setup
+void test_mag_vector()
+{  // setup
    Vector v(2, 2);
    // exercise
    auto r = mag(v);
@@ -85,8 +84,8 @@ void test_mag_vector() {
    assert(typeid(r) == typeid(double));
 }  // breakdown
 
-void test_deg() {
-   // setup
+void test_deg()
+{  // setup
    double angleRadians = 3 * M_PI/4;
    // exercise
    auto angleDegrees = deg(angleRadians);
@@ -95,8 +94,8 @@ void test_deg() {
    assert(typeid(angleDegrees) == typeid(double));
 }  // breakdown
 
-void test_rad() {
-   // setup
+void test_rad()
+{  // setup
    double angleDegrees = -270;
    // exercise
    auto angleRadians = rad(angleDegrees);
@@ -105,8 +104,8 @@ void test_rad() {
    assert(typeid(angleRadians) == typeid(double));
 }  // breakdown
 
-void test_distance() {
-   // setup
+void test_distance()
+{  // setup
    Position p1(4, 5);
    Position p2(9, -5);
    // exercise
@@ -119,8 +118,8 @@ void test_distance() {
    assert(d == magnitude);
 }  // breakdown
 
-void test_distance_objs() {
-   // setup
+void test_distance_objs()
+{  // setup
    MovingObject obj1;
    obj1.setPosition(Position(4, 5));
    MovingObject obj2;
@@ -132,8 +131,8 @@ void test_distance_objs() {
    assert(typeid(d) == typeid(double));
 }  // breakdown
 
-void test_computeDistance() {
-   // setup
+void test_computeDistance()
+{  // setup
    Position p1(4, 5);
    Position p2(9, -5);
    // exercise
@@ -143,16 +142,16 @@ void test_computeDistance() {
    assert(typeid(d) == typeid(double));
 }  // breakdown
 
-void test_timeDilation() {
-   // setup
+void test_timeDilation()
+{  // setup
    // exercise
    auto dilation = timeDilation();
    // verify
    assert(dilation == 24 * 60);
 }  // breakdown
 
-void test_dilateTime() {
-   // setup
+void test_dilateTime()
+{  // setup
    double gameTime = 5; // s
    // exercise
    auto realTime = dilateTime(5);
@@ -161,8 +160,8 @@ void test_dilateTime() {
    assert(typeid(realTime) == typeid(double));
 }  // breakdown
 
-void test_timePerFrame() {
-   // setup
+void test_timePerFrame()
+{  // setup
    // exercise
    auto time = timePerFrame();
    // verify
@@ -170,8 +169,8 @@ void test_timePerFrame() {
    assert(typeid(time) == typeid(double));
 }  // breakdown
 
-void test_rotationSpeed() {
-   // setup
+void test_rotationSpeed()
+{  // setup
    // exercise
    auto earth_rotation_speed = earthRotationSpeed();
    // verify
@@ -182,8 +181,8 @@ void test_rotationSpeed() {
 }  // breakdown
 
 
-void test_calcHeight() {
-   // setup
+void test_calcHeight()
+{  // setup
    double x = 10000000;
    double y = 10000000;
    Position p(x, y);
@@ -194,8 +193,8 @@ void test_calcHeight() {
    assert(typeid(height) == typeid(double));
 }  // breakdown
 
-void test_calcHeight_earth() {
-   // setup
+void test_calcHeight_earth()
+{  // setup
    double x = 10000000;
    double y = 10000000;
    Position p(x, y);
@@ -208,8 +207,8 @@ void test_calcHeight_earth() {
    assert(typeid(height) == typeid(double));
 }  // breakdown
 
-void test_directionOfGravity() {
-   // setup
+void test_directionOfGravity()
+{  // setup
    Position p1;
    p1.setPolar(4000000, M_PI/6);
    Position p2(0,0);
@@ -220,8 +219,8 @@ void test_directionOfGravity() {
    assert(typeid(direction) == typeid(double));
 }  // breakdown
 
-void test_directionOfGravity_objs() {
-   // setup
+void test_directionOfGravity_objs()
+{  // setup
    Position p;
    p.setPolar(4000000, M_PI/6);
    MovingObject obj1;
@@ -234,8 +233,8 @@ void test_directionOfGravity_objs() {
    assert(typeid(direction) == typeid(double));
 }  // breakdown
 
-void test_forceDueToGravity() {
-   // setup
+void test_forceDueToGravity()
+{  // setup
    Earth e;
    Sputnik s;
    Position p;
@@ -251,8 +250,8 @@ void test_forceDueToGravity() {
    assert(typeid(fg) == typeid(Gravity));
 }  // breakdown
 
-void test_calcGravity() {
-   // setup
+void test_calcGravity()
+{  // setup
    double height = 400000000;
    // exercise
    auto agMag = calcGravity(height);
@@ -261,8 +260,8 @@ void test_calcGravity() {
    assert(typeid(agMag) == typeid(double));
 }  // breakdown
 
-void test_calcGravityVector() {
-   // setup
+void test_calcGravityVector()
+{  // setup
    Position p;
    double magnitude = 4000000;
    double angleRadians = M_PI/6;
@@ -275,8 +274,8 @@ void test_calcGravityVector() {
    assert(typeid(ag) == typeid(Acceleration));
 }  // breakdown
 
-void test_aToD() {
-   // setup
+void test_aToD()
+{  // setup
    double angle = M_PI/4;
    double dt = 1; // s
    Acceleration a;
@@ -292,8 +291,8 @@ void test_aToD() {
    assert(typeid(d) == typeid(double));
 }  // breakdown
 
-void test_aToX() {
-   // setup
+void test_aToX()
+{  // setup
    double dt = 1; // s
    Acceleration a(1, 0);
    Velocity v0(2, 0);
@@ -305,8 +304,8 @@ void test_aToX() {
    assert(typeid(d) == typeid(double));
 }  // breakdown
 
-void test_aToY() {
-   // setup
+void test_aToY()
+{  // setup
    double dt = 1; // s
    Acceleration a(0, 1);
    Velocity v0(0, 2);
@@ -318,8 +317,8 @@ void test_aToY() {
    assert(typeid(d) == typeid(double));
 }  // breakdown
 
-void test_aToDx() {
-   // setup
+void test_aToDx()
+{  // setup
    double dt = 1; // s
    Acceleration a(0, 1);
    Velocity v0(0, 2);
@@ -330,20 +329,20 @@ void test_aToDx() {
    assert(typeid(d) == typeid(double));
 }  // breakdown
 
-void test_aToDy() {
-   // setup
+void test_aToDy()
+{  // setup
    // exercise
    // verify
 }  // breakdown
 
-void test_aToV() {
-   // setup
+void test_aToV()
+{  // setup
    // exercise
    // verify
 }  // breakdown
 
-void testPhysicsFormulas() {
-   test_trigX();
+void testPhysicsFormulas()
+{  test_trigX();
    test_trigY();
    test_trigX_vector();
    test_trigY_vector();

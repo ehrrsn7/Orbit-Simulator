@@ -7,7 +7,6 @@
  *    The test runner for all the unit tests
  **********************************************************************/
 
-
 #include "test.h"
 #include "testVector.h"
 #include "testPosition.h"
@@ -22,7 +21,6 @@
  * Runs all the unit tests
  **************************************************/
 void testRunner() {
-   
    TestPosition().run();
    // TestVector().run();
    TestVelocity().run();

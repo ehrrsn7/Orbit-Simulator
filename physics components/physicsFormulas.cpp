@@ -12,7 +12,6 @@
 
 #include <cmath>              // for math functions
 
-
 /**********************************************************************
  * Horizontal/Vertical Components
  *    Note: 'Vector&' is polymorphic -- it refers to either itself or
@@ -22,13 +21,13 @@ double trigX(const double mag, const double angleRadians)
    { return mag * sin(angleRadians); }
 double trigY(const double mag, const double angleRadians)
    { return mag * cos(angleRadians); }
- 
+
 double trigX(const Vector & v) { return trigX(mag(v), v.angle()); }
 double trigY(const Vector & v) { return trigY(mag(v), v.angle()); }
 
 double mag(const Vector& s) { return mag(s.getX(), s.getY()); }
 double mag(double x, double y) { return sqrt(x*x + y*y); }
-                                         
+
 double deg(double angleRadians) { return 180 * angleRadians / M_PI; }
 double rad(double angleDegrees) { return M_PI * angleDegrees / 180; }
 
@@ -53,8 +52,7 @@ double computeDistance(const Position& pos1, const Position& pos2) {
  * where 'too close' == object1.radius + object2.radius)
  **************************************************/
 bool hasCollided(MovingObject & obj1, MovingObject & obj2) {
-   return (computeDistance(obj1.getPosition(), obj2.getPosition())
-           < obj1.getRadius() + obj2.getRadius());
+   return computeDistance(obj1.getPosition(), obj2.getPosition()) < (obj1.getRadius() + obj2.getRadius());
 }
 
 /**************************************************
@@ -77,10 +75,10 @@ double distance(const MovingObject& obj1, const MovingObject& obj2) {
 /**********************************************************************
  * Time Functions
  **********************************************************************/
- 
+
 /**************************************************
  * time dilation
- * dialation = hours in Day * minutes in hour
+ * dilation = hours in Day * minutes in hour
  *    td - ratio of simulator time to real-world time
  *    hours in day - 24
  *    minutes in hour - 60
@@ -92,10 +90,10 @@ double timeDilation() {return 24 * 60; }
 * use timeDilation() to calculate adjusted deltaTime
 **************************************************/
 double dilateTime(double dt) { return timeDilation() * dt; }
- 
+
 /**************************************************
  * time per frame
- * frame time = dialation / frame rate
+ * frame time = dilation / frame rate
  *    tpf - real-world time in seconds for each frame in the simulator
  *    frame rate - fps defined in simulator, 30 in our case
  *    timeDilation - "
@@ -133,14 +131,14 @@ double pixelsToMeters(double pixels) {
 double metersToPixels(double meters) {
   return Position().metersToPixels(meters);
 }
- 
+
 /**********************************************************************
  * Earth Functions
  **********************************************************************/
- 
+
 /**************************************************
  * earth rotation speed
- * speed = -(2π/frame rate) * (dialation / seconds in day)
+ * speed = -(2π/frame rate) * (dilation / seconds in day)
  *    rf - rotation of the earth in radians per 1 frame
  *    frame rate - "
  *    timeDilation - "
@@ -152,7 +150,7 @@ double earthRotationSpeed() {
 
 /**************************************************
  * earth rotation speed
- * speed = -(2π/frame rate) * (dialation / seconds in day)
+ * speed = -(2π/frame rate) * (dilation / seconds in day)
  *    rf - rotation of the earth in radians per 1 frame
  *    frame rate - "
  *    timeDilation - "
@@ -183,7 +181,7 @@ double calcHeight(const Position & p) {
       pow(p.getMetersY(), 2)
    ) - EARTH_RADIUS;
 }
- 
+
 /**************************************************
  * height above the earth
  * h = √[(x2 - x1)² + (y2 - y1)²] - r
@@ -196,7 +194,7 @@ double calcHeight(const Position & p, const Earth & e) {
       pow(p.getMetersY() - e.getPosition().getMetersY(), 2)
    ) - EARTH_RADIUS;
 }
- 
+
 /**************************************************
  * direction of gravity pull
  * a = atan2(p.x2 - p.x2, p.y1 - p.y2)
@@ -260,7 +258,7 @@ Acceleration calcGravityVector(const Position& p) {
 /**********************************************************************
  * Motion
  **********************************************************************/
- 
+
 /**************************************************
  * motion with constant acceleration
  * s = s0 + v0 * dt + 1/2 * a * dt^2
@@ -269,7 +267,7 @@ double aToD(const Acceleration& a, const Velocity& v0, double dt, double initial
    return initialD + mag(v0) * dt + .5 * mag(a) * pow(dt, 2);
    // dEjA vUUUUoo 🥹🚗
 }
- 
+
 /**************************************************
  * x component of motion with constant acceleration
  **************************************************/
@@ -277,7 +275,7 @@ double aToX(const Acceleration& a, const Velocity& v0, double dt, double initial
    return initialD + v0.getX() * dt + .5 * a.getX() * pow(dt, 2);
    // return toX(aToD(a, v0, dt, initialD), Velocity(a * dt + v0).getAngleRadians());
 }
- 
+
 /**************************************************
  * y component of motion with constant acceleration
  **************************************************/
@@ -285,14 +283,14 @@ double aToY(const Acceleration& a, const Velocity& v0, double dt, double initial
    return initialD + v0.getY() * dt + .5 * a.getY() * pow(dt, 2);
    // return toX(aToD(a, v0, dt, initialD), Velocity(a * dt + v0).getAngleRadians());
 }
- 
+
 /**************************************************
  * x component of velocity with constant acceleration
  **************************************************/
 double aToDx(const Acceleration& a, const Velocity& v0, double dt) {
    return v0.getX() + a.getX() * dt;
 }
- 
+
 /**************************************************
  * y component of velocity with constant acceleration
  **************************************************/

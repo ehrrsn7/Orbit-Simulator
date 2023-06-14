@@ -3,14 +3,13 @@
  * orbitSimulator
  **********************************************************************/
 
-
 #include "testVector.h"
 
 /********************
  * Constructors
  ********************/
-void TestVector::LowerEdgeCase::test_default_constructor() const {
-   // setup
+void TestVector::LowerEdgeCase::test_default_constructor() const
+{  // setup
    Vector v;
    // exercise
    // verify
@@ -18,8 +17,8 @@ void TestVector::LowerEdgeCase::test_default_constructor() const {
    assert(v.y == 0);
 }  // breakdown
 
-void TestVector::LowerEdgeCase::test_nondefault_Constructor () const {
-   // setup
+void TestVector::LowerEdgeCase::test_nondefault_Constructor () const
+{  // setup
    Vector v(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    // exercise
    // verify
@@ -27,8 +26,8 @@ void TestVector::LowerEdgeCase::test_nondefault_Constructor () const {
    assert(v.y == std::numeric_limits<double>::lowest());
 }  // breakdown
 
-void TestVector::LowerEdgeCase::test_assignment() const {
-   // setup
+void TestVector::LowerEdgeCase::test_assignment() const
+{  // setup
    Vector v1(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    Vector vCopy = v1;
    // exercise
@@ -37,8 +36,8 @@ void TestVector::LowerEdgeCase::test_assignment() const {
    assert(vCopy.y == std::numeric_limits<double>::lowest());
 }  // breakdown
 
-void TestVector::LowerEdgeCase::test_copy_constructor() const {
-   // setup
+void TestVector::LowerEdgeCase::test_copy_constructor() const
+{  // setup
    Vector v1(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    Vector vCopy(v1);
    // exercise
@@ -52,8 +51,8 @@ void TestVector::LowerEdgeCase::test_copy_constructor() const {
  * Getters
  ********************/
 // test getX
-void TestVector::LowerEdgeCase::testGetX() const {
-   // setup
+void TestVector::LowerEdgeCase::testGetX() const
+{  // setup
    Vector v(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    // exercise
    // verify
@@ -61,8 +60,8 @@ void TestVector::LowerEdgeCase::testGetX() const {
 }  // breakdown
 
 // test getY
-void TestVector::LowerEdgeCase::testGetY() const {
-   // setup
+void TestVector::LowerEdgeCase::testGetY() const
+{  // setup
    Vector v(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    // exercise
    // verify
@@ -74,8 +73,8 @@ void TestVector::LowerEdgeCase::testGetY() const {
  * Setters
  ********************/
 // test setX
-void TestVector::LowerEdgeCase::testSetX() const {
-   // setup
+void TestVector::LowerEdgeCase::testSetX() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setX(std::numeric_limits<double>::lowest());
@@ -85,8 +84,8 @@ void TestVector::LowerEdgeCase::testSetX() const {
 }  // breakdown
 
 // test setY
-void TestVector::LowerEdgeCase::testSetY() const {
-   // setup
+void TestVector::LowerEdgeCase::testSetY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setY(std::numeric_limits<double>::lowest());
@@ -96,8 +95,8 @@ void TestVector::LowerEdgeCase::testSetY() const {
 }  // breakdown
 
 // test set(x, y)
-void TestVector::LowerEdgeCase::testSetXY() const {
-   // setup
+void TestVector::LowerEdgeCase::testSetXY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.set(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
@@ -107,8 +106,8 @@ void TestVector::LowerEdgeCase::testSetXY() const {
 }  // breakdown
 
 // test set(s)
-void TestVector::LowerEdgeCase::testSetS() const {
-   // setup
+void TestVector::LowerEdgeCase::testSetS() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.set(Vector(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest()));
@@ -122,8 +121,8 @@ void TestVector::LowerEdgeCase::testSetS() const {
  * Adders
  ********************/
 // test addX
-void TestVector::LowerEdgeCase::testAddX() const {
-   // setup
+void TestVector::LowerEdgeCase::testAddX() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addX(std::numeric_limits<double>::lowest());
@@ -133,8 +132,8 @@ void TestVector::LowerEdgeCase::testAddX() const {
 }  // breakdown
 
 // test addY
-void TestVector::LowerEdgeCase::testAddY() const {
-   // setup
+void TestVector::LowerEdgeCase::testAddY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addY(std::numeric_limits<double>::lowest());
@@ -144,8 +143,8 @@ void TestVector::LowerEdgeCase::testAddY() const {
 }  // breakdown
 
 // test add(x, y)
-void TestVector::LowerEdgeCase::testAddXY() const {
-   // setup
+void TestVector::LowerEdgeCase::testAddXY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.add(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
@@ -155,8 +154,8 @@ void TestVector::LowerEdgeCase::testAddXY() const {
 }  // breakdown
 
 // test add(s)
-void TestVector::LowerEdgeCase::testAddS() const {
-   // setup
+void TestVector::LowerEdgeCase::testAddS() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.add(Vector(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest()));
@@ -169,8 +168,8 @@ void TestVector::LowerEdgeCase::testAddS() const {
    * Other Getters/Setters
    ********************/
 // test getMagnitude
-void TestVector::LowerEdgeCase::testGetMagnitude() const {
-   // setup
+void TestVector::LowerEdgeCase::testGetMagnitude() const
+{  // setup
    Vector v(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    // exercise
    // verify
@@ -178,8 +177,8 @@ void TestVector::LowerEdgeCase::testGetMagnitude() const {
 }  // breakdown
 
 // test getAngleRadians
-void TestVector::LowerEdgeCase::testGetAngleRadians() const {
-   // setup
+void TestVector::LowerEdgeCase::testGetAngleRadians() const
+{  // setup
    Vector v(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    // exercise
    // verify
@@ -187,8 +186,8 @@ void TestVector::LowerEdgeCase::testGetAngleRadians() const {
 }  // breakdown
 
 // test angle
-void TestVector::LowerEdgeCase::testAngle() const {
-   // setup
+void TestVector::LowerEdgeCase::testAngle() const
+{  // setup
    Vector v(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
    // exercise
    // verify
@@ -196,8 +195,8 @@ void TestVector::LowerEdgeCase::testAngle() const {
 }  // breakdown
 
 // test setPolar
-void TestVector::LowerEdgeCase::testSetPolar() const {
-   // setup
+void TestVector::LowerEdgeCase::testSetPolar() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setPolar(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
@@ -207,8 +206,8 @@ void TestVector::LowerEdgeCase::testSetPolar() const {
 }  // breakdown
 
 // test setMagnitude
-void TestVector::LowerEdgeCase::testSetMagnitude() const {
-   // setup
+void TestVector::LowerEdgeCase::testSetMagnitude() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setMagnitude(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
@@ -218,8 +217,8 @@ void TestVector::LowerEdgeCase::testSetMagnitude() const {
 }  // breakdown
 
 // test addPolar
-void TestVector::LowerEdgeCase::testAddPolar() const {
-   // setup
+void TestVector::LowerEdgeCase::testAddPolar() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addPolar(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());
@@ -229,8 +228,8 @@ void TestVector::LowerEdgeCase::testAddPolar() const {
 }  // breakdown
 
 // test addMagnitude
-void TestVector::LowerEdgeCase::testAddMagnitude() const {
-   // setup
+void TestVector::LowerEdgeCase::testAddMagnitude() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addMagnitude(std::numeric_limits<double>::lowest(), std::numeric_limits<double>::lowest());

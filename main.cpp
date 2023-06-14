@@ -25,24 +25,25 @@ using namespace std;
  * engine will wait until the proper amount of
  * time has passed and put the drawing on the screen.
  **************************************************/
-void callBack(const Interface* pUI, void* p) {
-   // the first step is to cast the void pointer into
+void callBack(const Interface* pUI, void* p)
+{  // the first step is to cast the void pointer into
    // a game object. This is the first step of every
    // single callback function in OpenGL.
    Simulator* pSim = (Simulator*)p;
-   
+
    // update game
    pSim->update(pUI);
    pSim->display();
    pSim->handleInput(pUI);
-   
+
    // other
-   
+
    // press ESC to end program
    if (pUI->isEscape()) exit(0);
-   
+
    // R to restart
-   if (pUI->isR()) replaceSimulator(pUI->getPtUpperRight(), pSim);
+   if (pUI->isR())
+      replaceSimulator(pUI->getPtUpperRight(), pSim);
 }
 
 double Position::metersFromPixels = 40.0;
@@ -65,22 +66,23 @@ int main(int argc, char** argv)
    Position ptUpperRight;
    ptUpperRight.setZoom(128000.0 /* 128km equals 1 pixel */);
    ptUpperRight.setPixels(1000.0, 1000.0);
-   
+
    // create interface object
    Interface ui(0, NULL,
       "Orbit Simulator", // name on the window
       ptUpperRight);
-   
+
    // create orbit simulator
    Simulator sim(ptUpperRight);
-   
+
    // run tests
    bool runTests = false;
-   if (runTests) {
+   if (runTests)
+   {
       testRunner(); // unit tests
       return 0; // early exit before running main loop
    }
-   
+
    // run interface, pass in orbit simulator
    ui.run(callBack, &sim);
 

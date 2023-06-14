@@ -3,18 +3,19 @@
  * orbitSimulator
  **********************************************************************/
 
-
 #pragma once
+#include "vector.h"
 
 class TestGravity {
 public:
-   void run() {
+   void run()
+   {
       testDivideOperator();
    }
-    
+
 private:
-   void testDivideOperator() const {
-      // setup
+   void testDivideOperator() const
+   {  // setup
       Gravity fg;
       fg.x = 5;
       fg.y = 4;

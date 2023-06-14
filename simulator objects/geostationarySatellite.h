@@ -26,44 +26,44 @@ public:
             tr.getPixelsX() * random(-0.5, 0.5),
             tr.getPixelsY() * random(-0.5, 0.5)
          );
-      } // any cosistent position on screen except for on top of earth
+      } // any consistent position on screen except for on top of earth
       while(computeDistance(p, Position()) < EARTH_RADIUS ||
             computeDistance(p, Position()) > min(tr.getMetersX(), tr.getMetersY())
       );
-      
+
       // keep this consistent for geostationary orbital pattern
       distFromEarth = p.getMagnitude();
    }
-    
+
    void update(const Interface * pUI) {
       angle += da;
    }
-   
+
    void display() const {
       drawHubble(p, angle);
    }
-   
+
    void handleInput(const Interface * pUI) { }
-   
+
    /********************************************
     * public methods which will help Simulator
     * class mock geostationary orbit motion
     ********************************************/
-   
+
    // method that directly asks for earthAngle as a parameter, this will simplify
    // how Simulator sets the new GS position relative to the earth (center point)
    void setRelativePosition(double earthAngle) {
       p.setMetersPolar(distFromEarth, earthAngle);
    }
-   
+
    // manual getters/setters
    void setPosition(Position p)  { this->p = p; }
    Position getP() const         { return p;}
-    
+
 private:
    Position p;
    double angle;
    double da;
    double distFromEarth;
-    
+
 };

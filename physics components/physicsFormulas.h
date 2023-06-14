@@ -8,7 +8,7 @@
 #define FPS 30                // frames/s
 #define SECONDS_IN_DAY 86400  // s : 60s/min * 60min/hr * 24hr/d
 
-#include "vector.h" // for Vector/child classes 
+#include "vector.h" // for Vector/child classes
 
 /**************************************************
  * Prototypes
@@ -21,7 +21,7 @@ class Earth;
  **********************************************************************/
 double trigX(const double mag, const double angleRadians);
 double trigY(const double mag, const double angleRadians);
- 
+
 double trigX(const Vector & v);
 double trigY(const Vector & v);
 
@@ -50,7 +50,7 @@ double timePerFrame();
  **********************************************************************/
 double pixelsToMeters(double pixels);
 double metersToPixels(double meters);
- 
+
 /**********************************************************************
  * Earth Functions
  **********************************************************************/

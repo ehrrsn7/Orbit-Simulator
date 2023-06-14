@@ -1,6 +1,6 @@
 /**********************************************************************
  * earth.h
- * orbitSimulator 
+ * orbitSimulator
  **********************************************************************/
 
 #pragma once
@@ -28,17 +28,17 @@ public:
       setAngle(0.0); // rad
       setDAngle(0.3); // rad/s
    }
-   
+
    void update(const Interface * pUI) override {
       double dt =  dilateTime(pUI->getDeltaTime());
       v += a * dt;
       p += v * dt;
       rotate(dt);
    }
-   
+
    void display() const override { drawEarth(p, angle); }
-   
-   void rotate(double dt) override 
+
+   void rotate(double dt) override
    {
       addAngle(earthRotationSpeed(dt));
    }

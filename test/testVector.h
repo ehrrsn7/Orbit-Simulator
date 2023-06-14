@@ -16,7 +16,8 @@ using namespace std;
 class TestVector
 {
 public:
-   void run() {
+   void run()
+   {
       ZerosTestCase().run();
       OtherTestCase().run();
       UpperEdgeCase().run();
@@ -25,12 +26,13 @@ public:
 
    class ZerosTestCase {
    public:
-      void run() {
+      void run()
+      {
          test_default_constructor();
          test_nondefault_Constructor();
          test_assignment();
          test_copy_constructor();
-         
+
          testGetX();
          testGetY();
          testSetX();
@@ -51,7 +53,7 @@ public:
          testAddPolar();
          testAddMagnitude();
       }
-      
+
    private:
       void test_default_constructor() const;
       void test_nondefault_Constructor() const;
@@ -73,7 +75,7 @@ public:
 
       void testPlus() const;
       void testPlusEquals() const;
-      
+
       void testGetMagnitude() const;
       void testGetAngleRadians() const;
       void testAngle() const;
@@ -85,12 +87,13 @@ public:
 
    class OtherTestCase {
    public:
-      void run() {
+      void run()
+      {
          test_default_constructor();
          test_nondefault_Constructor();
          test_assignment();
          test_copy_constructor();
-         
+
          testGetX();
          testGetY();
          testSetX();
@@ -111,7 +114,7 @@ public:
          testAddPolar();
          testAddMagnitude();
       }
-      
+
    private:
       void test_default_constructor() const;
       void test_nondefault_Constructor() const;
@@ -133,7 +136,7 @@ public:
 
       void testPlus() const;
       void testPlusEquals() const;
-      
+
       void testGetMagnitude() const;
       void testGetAngleRadians() const;
       void testAngle() const;
@@ -145,12 +148,13 @@ public:
 
    class UpperEdgeCase {
    public:
-      void run() {
+      void run()
+      {
          test_default_constructor();
          test_nondefault_Constructor();
          test_assignment();
          test_copy_constructor();
-         
+
          testGetX();
          testGetY();
          testSetX();
@@ -171,7 +175,7 @@ public:
          // testAddPolar(); // error
          // testAddMagnitude(); // error
       }
-      
+
    private:
       void test_default_constructor() const;
       void test_nondefault_Constructor() const;
@@ -205,12 +209,13 @@ public:
 
    class LowerEdgeCase {
    public:
-      void run() {
+      void run()
+      {
          test_default_constructor();
          test_nondefault_Constructor();
          test_assignment();
          test_copy_constructor();
-         
+
          testGetX();
          testGetY();
          testSetX();
@@ -231,7 +236,7 @@ public:
          // testAddPolar(); // error
          // testAddMagnitude(); // error
       }
-      
+
    private:
       void test_default_constructor() const;
       void test_nondefault_Constructor() const;
@@ -253,7 +258,7 @@ public:
 
       void testPlus() const;
       void testPlusEquals() const;
-      
+
       void testGetMagnitude() const;
       void testGetAngleRadians() const;
       void testAngle() const;

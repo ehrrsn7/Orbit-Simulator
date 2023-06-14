@@ -29,7 +29,7 @@
 #ifdef _WIN32
 #include <stdio.h>
 #include <stdlib.h>
-#include <GL/glut.h>         // OpenGL library we copied 
+#include <GL/glut.h>         // OpenGL library we copied
 #define _USE_MATH_DEFINES
 #include <math.h>
 #endif // _WIN32
@@ -39,7 +39,7 @@
 
 using namespace std;
 
-// colors ueed in the simulator
+// colors used in the simulator
 const int RGB_WHITE[] =      { 255, 255, 255 };
 const int RGB_LIGHT_GREY[] = { 196, 196, 196 };
 const int RGB_GREY[] =       { 128, 128, 128 };
@@ -83,11 +83,11 @@ Position rotate(const Position& origin, double x, double y, double rotation)
 inline void glResetColor()
 {
    glColor3f((GLfloat)1.0 /* red % */, (GLfloat)1.0 /* green % */, (GLfloat)1.0 /* blue % */);
-}   
+}
 
 /*************************************************************************
  * COLOR RECTANGLE
- * A structure used to conveniently specify a rectangle 
+ * A structure used to conveniently specify a rectangle
  * of a certain color
  *************************************************************************/
 struct ColorRect
@@ -116,8 +116,8 @@ void glColor(const int* rgb)
 }
 
 /*************************************************************************
- * GL VERTEXT POINT
- * Just a more convenient format of glVertext2f
+ * GL VERTEX POINT
+ * Just a more convenient format of glVertex2f
  *************************************************************************/
 inline void glVertexPoint(const Position & point)
 {
@@ -188,7 +188,7 @@ void ogstream :: flush()
          sOut.clear();
          pt.addPixelsY(-18);
       }
-      // othewise append
+      // otherwise append
       else
          sOut += *it;
 
@@ -198,7 +198,7 @@ void ogstream :: flush()
       drawText(pt, sOut.c_str());
       pt.addPixelsY(-18);
    }
-   
+
    // reset the buffer
    str("");
 }
@@ -244,7 +244,7 @@ void drawFragment(const Position& center, double rotation)
  *************************************************************************/
 void drawCrewDragonCenter(const Position& center, double rotation)
 {
-   ColorRect rects[] = 
+   ColorRect rects[] =
    {
       {-5,5,   3,5,   3,-5,  -5,-5,  RGB_LIGHT_GREY },
       { 3,5,   3,-5, 11,-3,  11,3,   RGB_GREY },
@@ -311,7 +311,7 @@ void drawCrewDragon(const Position& center, double rotation)
    posRight.setPixelsX(-1.0);
    posRight.setPixelsY(11.0);
    drawCrewDragonRight( center, posRight, rotation);
-   
+
    Position posLeft;
    posLeft.setPixelsX(-1.0);
    posLeft.setPixelsY(-11.0);
@@ -326,7 +326,7 @@ void drawCrewDragon(const Position& center, double rotation)
  *************************************************************************/
 void drawSputnik(const Position& center, double rotation)
 {
-   // draw the sphere                                               
+   // draw the sphere
    const PT pointsSphere[] =
    {
       {0,0},
@@ -461,12 +461,12 @@ void drawGPSCenter(const Position& center, double rotation)
 void drawGPS(const Position& center, double rotation)
 {
    drawGPSCenter(center, rotation);
-   
+
    Position posRight;
    posRight.setPixelsX(0.0);
    posRight.setPixelsY(12.0);
    drawGPSRight(center, posRight, rotation);
-   
+
    Position posLeft;
    posLeft.setPixelsX(0.0);
    posLeft.setPixelsY(-12.0);
@@ -585,7 +585,7 @@ void drawHubbleRight(const Position& center, const Position& offset, double rota
  * DRAW Hubble
  * Draw a Hubble satellite on the screen. It consists of 4 parts
  *  INPUT point   The position of the ship
- *        angle   Which direction it is ponted
+ *        angle   Which direction it is pointed
  *************************************************************************/
 void drawHubble(const Position& center, double rotation)
 {
@@ -598,7 +598,7 @@ void drawHubble(const Position& center, double rotation)
    posComputer.setPixelsX(-10.0);
    posComputer.setPixelsY(0.0);
    drawHubbleComputer(center,  posComputer, rotation);
-   
+
    Position posRight;
    posRight.setPixelsX(1.0);
    posRight.setPixelsY(-8.0);
@@ -677,9 +677,9 @@ void drawStarlink(const Position& center, double rotation)
  *************************************************************************/
 void drawShip(const Position& center, double rotation, bool thrust)
 {
-   // draw the white part of the ship                                               
+   // draw the white part of the ship
    const PT pointsShipWhite[] =
-   { 
+   {
       {0,0},
       {-3,-9}, {-12,-12}, {-14,-12}, {-13,-7}, {-8,-2}, {-6,3}, {-4,11}, {-4,14}, {-3,16}, {-1,18},
       {1,18}, {3,16}, {4,14}, {4,11}, {6,3}, {8,-2}, {13,-7}, {14,-12}, {12,-12}, {3,-9}, {-3,-9}
@@ -706,7 +706,7 @@ void drawShip(const Position& center, double rotation, bool thrust)
       glEnd();
    }
 
-   // draw the dark part of the ship                                               
+   // draw the dark part of the ship
    const PT pointsShipBlack[][4] =
    {
       {{-5,-8},  {-12,-11},{-11,-7},{-5,-2}}, // left wing
@@ -718,7 +718,7 @@ void drawShip(const Position& center, double rotation, bool thrust)
    glColor(RGB_DEEP_BLUE);
    for (int iRectangle = 0; iRectangle < 4; iRectangle++)
       for (int iVertex = 0; iVertex < 4; iVertex++)
-      glVertexPoint(rotate(center, pointsShipBlack[iRectangle][iVertex].x, 
+      glVertexPoint(rotate(center, pointsShipBlack[iRectangle][iVertex].x,
                                    pointsShipBlack[iRectangle][iVertex].y, rotation));
    glResetColor();
    glEnd();
@@ -732,7 +732,7 @@ void drawShip(const Position& center, double rotation, bool thrust)
  *************************************************************************/
 void drawEarth(const Position& center, double rotation)
 {
-   const int * colors[5] = 
+   const int * colors[5] =
    {
       RGB_GREY,  // 0
       RGB_BLUE,  // 1
@@ -811,17 +811,17 @@ void drawEarth(const Position& center, double rotation)
          if (earth[y][x])
          {
             assert(earth[y][x] > 0 && earth[y][x] <= 4);
-            ColorRect rect = 
+            ColorRect rect =
             {
                static_cast<int>(x * SCALE),
                static_cast<int>(y * SCALE),
-               
+
                static_cast<int>(x * SCALE),
                static_cast<int>(y * SCALE + SCALE),
-               
+
                static_cast<int>(x * SCALE + SCALE),
                static_cast<int>(y * SCALE + SCALE),
-               
+
                static_cast<int>(x * SCALE + SCALE),
                static_cast<int>(y * SCALE), colors[earth[y][x]]};
             Position pos;
@@ -911,7 +911,7 @@ void drawCircle(Position c, float r) {
 
 /*************************************************************************
  * RANDOM
- * This function generates a random number.  
+ * This function generates a random number.
  *
  *    INPUT:   min, max : The number of values (min <= num <= max)
  *    OUTPUT   <return> : Return the integer
@@ -927,7 +927,7 @@ int random(int min, int max)
 
 /*************************************************************************
  * RANDOM
- * This function generates a random number.  
+ * This function generates a random number.
  *
  *    INPUT:   min, max : The number of values (min <= num <= max)
  *    OUTPUT   <return> : Return the double
@@ -936,10 +936,8 @@ double random(double min, double max)
 {
    assert(min <= max);
    double num = min + ((double)rand() / (double)RAND_MAX * (max - min));
-   
+
    assert(min <= num && num <= max);
 
    return num;
 }
-
-

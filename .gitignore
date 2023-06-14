@@ -1,11 +1,5 @@
-/.DS_Store
 /.vs
 /.vscode
-/Lab07 2.vcxproj
-/Lab07.vcxproj 2.filters
-/Lab07.vcxproj 2.user
-/README 2.md
-/main 2.cpp
-/orbitSimulator 2.sln
-/packages 2.config
-/simulatorObjects 2.h
+build
+orbitSimulator.xcodeproj/project.xcworkspace/xcuserdata/ehrrsn7.xcuserdatad/UserInterfaceState.xcuserstate
+.DS_Store

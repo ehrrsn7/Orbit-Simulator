@@ -3,18 +3,19 @@
  * orbitSimulator
  **********************************************************************/
 
-
 #pragma once
+#include "vector.h"
 
 class TestVelocity {
 public:
-   void run() {
+   void run()
+   {
       testMultiplyOperator();
    }
-    
+
 private:
-   void testMultiplyOperator() const {
-      // setup
+   void testMultiplyOperator() const
+   {  // setup
       Velocity v(5, 4);
       double dt = .5;
       // exercise

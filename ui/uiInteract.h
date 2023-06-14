@@ -44,7 +44,7 @@ public:
    {
       initialize(argc, argv, title, ptUpperRight);
    }
-   
+
    // Destructor, in case any housecleaning needs to occur
    ~Interface() { }
 
@@ -62,12 +62,12 @@ public:
 
    // How many frames per second are we configured for?
    void setFramesPerSecond(double value);
-   
+
    // How much time passed since the last frame?
    void updateDeltaTime();
    double getDeltaTime() const;
    double getDeltaTimeMs() const;
-   
+
    // Key event indicating a key has been pressed or not.  The callbacks
    // should be the only onces to call this
    void keyEvent(int key, bool fDown);
@@ -75,10 +75,10 @@ public:
 
    // Current frame rate
    double frameRate() const { return timePeriod;   };
-   
+
    // screen dimensions
    Position getPtUpperRight() const { return ptUpperRight; }
-   
+
    // Get various key events
    int  isDown()     const { return isDownPress;   };
    int  isUp()       const { return isUpPress;     };
@@ -88,7 +88,7 @@ public:
    bool isEscape()   const { return isEscapePress; }; // (ELIJAH)
    bool isR()        const { return isRPress;      }; // (ELIJAH)
    bool isB()        const { return isBPress;      }; // (ELIJAH)
-   
+
    static void *p;                   // for client
    static void (*callBack)(const Interface *, void *);
 
@@ -113,13 +113,12 @@ private:
 
 };
 
-
 /*************************************************************************
  * DRAW CALLBACK
  * This is the main callback from OpenGL. It gets called constantly by
  * the graphics engine to refresh and draw the window.  Here we will
  * clear the background buffer, draw on it, and send it to the forefront
- * when the appropriate time period has passsed.
+ * when the appropriate time period has passed.
  *
  * Note: This and all other callbacks can't be member functions, they must
  * have global scope for OpenGL to see them.
@@ -129,7 +128,7 @@ void drawCallback();
 /*************************************************************************
  * KEY DOWN CALLBACK
  * When a key on the keyboard has been pressed, we need to pass that
- * on to the client.  Currnetly, we are only registering the arrow keys
+ * on to the client.  Currently, we are only registering the arrow keys.
  *************************************************************************/
 void keyDownCallback(int key, int x, int y);
 

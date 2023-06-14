@@ -12,7 +12,7 @@ std::ostream& operator << (std::ostream& out, const Acceleration& rhs) {
    out << "(" << rhs.getX() << "m/s/s , " << rhs.getY() << "m/s/s)";
    return out;
 }
-   
+
 /**************************************************
  * ACCELERATION istream extraction
  **************************************************/

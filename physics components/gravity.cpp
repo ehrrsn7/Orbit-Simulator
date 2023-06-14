@@ -12,7 +12,7 @@ std::ostream& operator << (std::ostream& out, const Gravity& rhs) {
    out << "(" << rhs.getX() << "N , " << rhs.getY() << "N)";
    return out;
 }
-   
+
 /**************************************************
  * GRAVITY istream extraction
  **************************************************/

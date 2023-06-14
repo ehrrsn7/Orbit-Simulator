@@ -3,14 +3,13 @@
  * orbitSimulator
  **********************************************************************/
 
-
 #include "testVector.h"
 
 /********************
  * Constructors
  ********************/
-void TestVector::OtherTestCase::test_default_constructor() const {
-   // setup
+void TestVector::OtherTestCase::test_default_constructor() const
+{  // setup
    Vector v;
    // exercise
    // verify
@@ -18,8 +17,8 @@ void TestVector::OtherTestCase::test_default_constructor() const {
    assert(v.y == 0);
 }  // breakdown
 
-void TestVector::OtherTestCase::test_nondefault_Constructor () const {
-   // setup
+void TestVector::OtherTestCase::test_nondefault_Constructor () const
+{  // setup
    Vector v(2, -5);
    // exercise
    // verify
@@ -27,8 +26,8 @@ void TestVector::OtherTestCase::test_nondefault_Constructor () const {
    assert(v.y == -5);
 }  // breakdown
 
-void TestVector::OtherTestCase::test_assignment() const {
-   // setup
+void TestVector::OtherTestCase::test_assignment() const
+{  // setup
    Vector v1(2, -5);
    Vector vCopy = v1;
    // exercise
@@ -37,8 +36,8 @@ void TestVector::OtherTestCase::test_assignment() const {
    assert(vCopy.y == -5);
 }  // breakdown
 
-void TestVector::OtherTestCase::test_copy_constructor() const {
-   // setup
+void TestVector::OtherTestCase::test_copy_constructor() const
+{  // setup
    Vector v1(2, -5);
    Vector vCopy(v1);
    // exercise
@@ -52,8 +51,8 @@ void TestVector::OtherTestCase::test_copy_constructor() const {
  * Getters
  ********************/
 // test getX
-void TestVector::OtherTestCase::testGetX() const {
-   // setup
+void TestVector::OtherTestCase::testGetX() const
+{  // setup
    Vector v(2, -5);
    // exercise
    // verify
@@ -61,8 +60,8 @@ void TestVector::OtherTestCase::testGetX() const {
 }  // breakdown
 
 // test getY
-void TestVector::OtherTestCase::testGetY() const {
-   // setup
+void TestVector::OtherTestCase::testGetY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    // verify
@@ -74,8 +73,8 @@ void TestVector::OtherTestCase::testGetY() const {
  * Setters
  ********************/
 // test setX
-void TestVector::OtherTestCase::testSetX() const {
-   // setup
+void TestVector::OtherTestCase::testSetX() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setX(7);
@@ -85,8 +84,8 @@ void TestVector::OtherTestCase::testSetX() const {
 }  // breakdown
 
 // test setY
-void TestVector::OtherTestCase::testSetY() const {
-   // setup
+void TestVector::OtherTestCase::testSetY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setY(7);
@@ -96,8 +95,8 @@ void TestVector::OtherTestCase::testSetY() const {
 }  // breakdown
 
 // test set(x, y)
-void TestVector::OtherTestCase::testSetXY() const {
-   // setup
+void TestVector::OtherTestCase::testSetXY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.set(7, 7);
@@ -107,8 +106,8 @@ void TestVector::OtherTestCase::testSetXY() const {
 }  // breakdown
 
 // test set(s)
-void TestVector::OtherTestCase::testSetS() const {
-   // setup
+void TestVector::OtherTestCase::testSetS() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.set(Vector(7, 7));
@@ -122,8 +121,8 @@ void TestVector::OtherTestCase::testSetS() const {
  * Adders
  ********************/
 // test addX
-void TestVector::OtherTestCase::testAddX() const {
-   // setup
+void TestVector::OtherTestCase::testAddX() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addX(7);
@@ -133,8 +132,8 @@ void TestVector::OtherTestCase::testAddX() const {
 }  // breakdown
 
 // test addY
-void TestVector::OtherTestCase::testAddY() const {
-   // setup
+void TestVector::OtherTestCase::testAddY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addY(7);
@@ -144,8 +143,8 @@ void TestVector::OtherTestCase::testAddY() const {
 }  // breakdown
 
 // test add(x, y)
-void TestVector::OtherTestCase::testAddXY() const {
-   // setup
+void TestVector::OtherTestCase::testAddXY() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.add(7, 7);
@@ -155,8 +154,8 @@ void TestVector::OtherTestCase::testAddXY() const {
 }  // breakdown
 
 // test add(s)
-void TestVector::OtherTestCase::testAddS() const {
-   // setup
+void TestVector::OtherTestCase::testAddS() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.add(Vector(7, 7));
@@ -168,8 +167,8 @@ void TestVector::OtherTestCase::testAddS() const {
 /********************
  * Operators
  ********************/
-void TestVector::OtherTestCase::testPlus() const {
-   // setup
+void TestVector::OtherTestCase::testPlus() const
+{  // setup
    Vector v(2, -5);
    // exercise
    Vector newV = v + Vector(7, 7);
@@ -178,8 +177,8 @@ void TestVector::OtherTestCase::testPlus() const {
    assert(newV.y == 2);
 }  // breakdown
 
-void TestVector::OtherTestCase::testPlusEquals() const {
-   // setup
+void TestVector::OtherTestCase::testPlusEquals() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v += Vector(7, 7);
@@ -192,8 +191,8 @@ void TestVector::OtherTestCase::testPlusEquals() const {
  * Other Getters/Setters
  ********************/
 // test getMagnitude
-void TestVector::OtherTestCase::testGetMagnitude() const {
-   // setup
+void TestVector::OtherTestCase::testGetMagnitude() const
+{  // setup
    Vector v(2, -5);
    // exercise
    // verify
@@ -201,8 +200,8 @@ void TestVector::OtherTestCase::testGetMagnitude() const {
 }  // breakdown
 
 // test getAngleRadians
-void TestVector::OtherTestCase::testGetAngleRadians() const {
-   // setup
+void TestVector::OtherTestCase::testGetAngleRadians() const
+{  // setup
    Vector v(2, -5);
    // exercise
    // verify
@@ -210,8 +209,8 @@ void TestVector::OtherTestCase::testGetAngleRadians() const {
 }  // breakdown
 
 // test angle
-void TestVector::OtherTestCase::testAngle() const {
-   // setup
+void TestVector::OtherTestCase::testAngle() const
+{  // setup
    Vector v(2, -5);
    // exercise
    // verify
@@ -219,8 +218,8 @@ void TestVector::OtherTestCase::testAngle() const {
 }  // breakdown
 
 // test setPolar
-void TestVector::OtherTestCase::testSetPolar() const {
-   // setup
+void TestVector::OtherTestCase::testSetPolar() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setPolar(7, M_PI/3);
@@ -230,8 +229,8 @@ void TestVector::OtherTestCase::testSetPolar() const {
 }  // breakdown
 
 // test setMagnitude
-void TestVector::OtherTestCase::testSetMagnitude() const {
-   // setup
+void TestVector::OtherTestCase::testSetMagnitude() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.setMagnitude(7, M_PI/3);
@@ -241,8 +240,8 @@ void TestVector::OtherTestCase::testSetMagnitude() const {
 }  // breakdown
 
 // test addPolar
-void TestVector::OtherTestCase::testAddPolar() const {
-   // setup
+void TestVector::OtherTestCase::testAddPolar() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addPolar(7, M_PI/3);
@@ -252,8 +251,8 @@ void TestVector::OtherTestCase::testAddPolar() const {
 }  // breakdown
 
 // test addMagnitude
-void TestVector::OtherTestCase::testAddMagnitude() const {
-   // setup
+void TestVector::OtherTestCase::testAddMagnitude() const
+{  // setup
    Vector v(2, -5);
    // exercise
    v.addMagnitude(7, M_PI/3);

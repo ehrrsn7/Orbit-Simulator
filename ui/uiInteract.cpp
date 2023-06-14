@@ -17,7 +17,6 @@
 #include <chrono>     // for duration_cast
 #include <cstdlib>    // for rand()
 
-
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION
 #include <openGL/gl.h>    // Main OpenGL library
@@ -44,7 +43,6 @@
 #include "vector.h"
 
 using namespace std;
-
 
 /*************************************************************************
  * SLEEP
@@ -79,7 +77,7 @@ void sleep(unsigned long msSleep)
  * This is the main callback from OpenGL. It gets called constantly by
  * the graphics engine to refresh and draw the window.  Here we will
  * clear the background buffer, draw on it, and send it to the forefront
- * when the appropriate time period has passsed.
+ * when the appropriate time period has passed.
  *
  * Note: This and all other callbacks can't be member functions, they must
  * have global scope for OpenGL to see them.
@@ -91,18 +89,18 @@ void drawCallback()
    // Prepare the background buffer for drawing
    glClear(GL_COLOR_BUFFER_BIT); //clear the screen
    glColor3f((GLfloat)1.0 /* red % */, (GLfloat)1.0 /* green % */, (GLfloat)1.0 /* blue % */);
-   
+
    //calls the client's display function
    assert(ui.callBack != NULL);
    ui.callBack(&ui, ui.p);
-   
+
    //loop until the timer runs out
    if (!ui.isTimeToDraw())
       sleep((unsigned long)((ui.getNextTick() - clock()) / 1000));
 
    // from this point, set the next draw time
    ui.setNextDrawTime();
-   
+
    // ELIJAH: use this moment to record what our current deltaTime was for the last frame
    ui.updateDeltaTime();
 
@@ -317,12 +315,12 @@ void (*Interface::callBack)(const Interface *, void *) = NULL;
  *           argv:       The actual command-line parameters
  *           title:      The text for the titlebar of the window
  *************************************************************************/
-void Interface::initialize(int argc, char ** argv, const char * title, 
+void Interface::initialize(int argc, char ** argv, const char * title,
                            const Position & ptUpperRight)
 {
    if (initialized)
       return;
-   
+
    // set up the random number generator
    srand((unsigned int)time(NULL));
 
@@ -330,12 +328,12 @@ void Interface::initialize(int argc, char ** argv, const char * title,
    glutInit(&argc, argv);
    glutInitWindowSize((int)ptUpperRight.getPixelsX(),
                       (int)ptUpperRight.getPixelsY());   // size of the window
-            
-   glutInitWindowPosition( 0, 0);                  // initial position 
+
+   glutInitWindowPosition( 0, 0);                  // initial position
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);    // double buffering
    glutCreateWindow(title);                        // text on titlebar
    glutIgnoreKeyRepeat(true);
-   
+
    // set up the drawing style: B/W and 2D
    glClearColor(0.0, 0.0, 0.0, 0);            // White is the background color
    gluOrtho2D(-(int)ptUpperRight.getPixelsX() / 2, (int)ptUpperRight.getPixelsX() / 2,    // range of x values: (0, width)
@@ -351,7 +349,7 @@ void Interface::initialize(int argc, char ** argv, const char * title,
    glutWMCloseFunc(      closeCallback   );
 #endif
    initialized = true;
-   
+
    // done
    return;
 }

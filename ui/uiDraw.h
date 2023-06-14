@@ -31,7 +31,7 @@ using std::max;
 class ogstream : public std::ostringstream {
 public:
    ogstream(const Position& pt) : pt(pt) {}
-   ~ogstream() { flush(); }; 
+   ~ogstream() { flush(); };
    void flush();
 
    void setPosition(const Position& pt) { flush(); this->pt = pt; }
@@ -39,7 +39,7 @@ public:
       setPosition(pt);
       return *this;
    }
-    
+
 private:
    Position pt;
 };
@@ -93,7 +93,7 @@ void drawGPSLeft(const Position& center, const Position& offset, double rotation
  * DRAW Hubble
  * Draw a Hubble satellite on the screen. It consists of 4 parts
  *  INPUT point   The position of the ship
- *        angle   Which direction it is ponted
+ *        angle   Which direction it is pointed
  *************************************************************************/
 void drawHubble(const Position& center, double rotation);
 void drawHubbleComputer(const Position& center, const Position& offset, double rotation);
@@ -147,10 +147,9 @@ void drawCircle(Position c, float r);
 /*************************************************************************
  * RANDOM
  * This function generates a random number.  The user specifies
- * The parameters 
+ * The parameters
  *    INPUT:   min, max : The number of values (min <= num <= max)
  *    OUTPUT   <return> : Return the integer/double
  *************************************************************************/
 int    random(int    min, int    max);
 double random(double min, double max);
-
